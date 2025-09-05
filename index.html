@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="This study presents the first comprehensive assessment of fairness in X-ray landmark detection models, revealing demographic disparities even in balanced datasets and proposing mitigation strategies using GroupDRO optimization.">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Fairness, Landmark detection, X-ray, Demographic Parity, Bias mitigation, Medical imaging, GroupDRO">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Are X-ray Landmark Detection Models Fair?</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="font-size: 40px;">
+              Are X-ray landmark Detection Models fair?<br>
+              A preliminary assessment and mitigation strategy</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://rubrica.unige.it/personale/UUdPXVxt" target="_blank">Roberto Di Via</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="#" target="_blank">Massimiliano Ciranni</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="#" target="_blank">Davide Marinelli</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="#" target="_blank">Allison Clement</a><sup>3</sup>,</span>
+                  <span class="author-block">
+                    <a href="#" target="_blank">Nikil Patel</a><sup>3</sup>,</span>
+                  <span class="author-block">
+                    <a href="#" target="_blank">Julian Wyatt</a><sup>3</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://rubrica.unige.it/personale/UkNHW1pu" target="_blank">Francesca Odone</a><sup>1</sup>,</span>
+                  <span class="author-block">
+                    <a href="#" target="_blank">Matteo Santacesaria</a><sup>2</sup>,</span>
+                  <span class="author-block">
+                    <a href="#" target="_blank">Irina Voiculescu</a><sup>3</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://rubrica.unige.it/personale/UkNEWVts" target="_blank">Vito Paolo Pastore</a><sup>1</sup>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>MaLGa-DIBRIS, <sup>2</sup>MaLGa-DIMA, University of Genoa, Italy<br><sup>3</sup>Oxford University, Department of Computer Science, UK<br>ICCV 2025 Workshop on Algorithmic Fairness in Computer Vision</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Paper PDF link -->
+                      <span class="link-block">
+                        <a href="static/pdfs/ICCV25_Workshop_LandmarksFairness.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Poster PDF link -->
+                    <span class="link-block">
+                      <a href="static/pdfs/poster_fairness.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Poster</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/Malga-Vision/X-ray-Landmark-Detection-Fairness" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser section-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      
+      <!--<img src="static/images/fairness_teaser.png" alt="Fairness assessment visualization showing demographic parity across different keypoints" style="width:100%"> -->
+
+      <video poster="" id="tree" autoplay controls muted loop width="100%">
+        <source src="static/videos/video.mp4"
+        type="video/mp4">
+      </video>
+      <br>
+
+      <h2 class="subtitle has-text-centered">
+        This work presents the first comprehensive assessment of fairness in anatomical landmark detection models for X-ray images, revealing significant demographic disparities even in carefully balanced datasets and proposing mitigation strategies using GroupDRO optimization.
+      </h2> 
+      
+    </div>
+  </div>
+</section>
+<!-- End teaser section -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Datasets used for benchmarking are always acquired with a view to representing different categories equally, with the best intentions to be fair to all. Whilst it is usually assumed that equal numerical representation in the training data leads to similar accuracy among demographic groups, so far, there has been next to no investigation or measurement of this assumption for the <b>anatomical landmark detection task</b>. In this work, we define what it means for anatomical landmark detection to be carried out fairly on different demographic categories, evaluating the fairness of models trained on two publicly available X-ray datasets that are known to be balanced, and showing how <b>unfair predictions can uncover metadata attributes intended to be hidden</b>. We further design a potential mitigation strategy in the landmark detection context, adapting a group optimization method typically employed for debiasing image classification models, obtaining a <b>partial improvement in terms of per-keypoint fairness</b>, while paving the way for further research in this field.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Method and Approach-->
+<section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Approach</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our work addresses the critical gap in fairness assessment for anatomical landmark detection by establishing a comprehensive evaluation protocol. We adapt the popular <b>Demographic Parity (DP) metric</b> from classification tasks to landmark detection, measuring fairness at the individual keypoint level rather than globally. The key innovation lies in recognizing that <b>fairness must be evaluated per keypoint</b>, as global measures can hide significant disparities affecting specific anatomical landmarks. We evaluate models on two carefully balanced X-ray datasets: the Digital Hand Atlas (DHA) with 37 landmarks and the CephAdoAdu dataset with 10 cephalometric landmarks, considering demographic attributes including age and gender.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column">
+          <img src="static/images/datasets_overview.png" alt="Overview of DHA and CephAdoAdu datasets with numbered landmarks" style="width:100%">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Fairness Assessment Results-->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Fairness Assessment Results</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our comprehensive fairness evaluation reveals significant demographic disparities in landmark detection models, even when trained on carefully balanced datasets. For the <b>DHA dataset</b>, while the overall average Demographic Parity (DP) appears relatively low at 0.045±0.009, per-keypoint analysis uncovers substantial fairness issues. Notably, wrist keypoints (KP1-KP18) exhibit much higher DP values than finger keypoints, with some landmarks showing DP values of 0.20, representing a 20% gap in Success Detection Rate (SDR) across demographic groups. Interestingly, the most significant disparities occur between female patients in different age groups, contradicting medical literature that finds no significant age-related differences. For the <b>CephAdoAdu dataset</b>, several keypoints (KP1, KP4-KP6) show elevated DP values, with KP1 reaching 0.17. Statistical validation through attribute randomization experiments confirms that these disparities are significantly higher than expected by chance, establishing genuine fairness concerns in anatomical landmark detection.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column">
+          <h3 class="title is-4">Per-Keypoint Fairness Analysis - DHA Dataset</h3>
+          <img src="static/images/dha_fairness_analysis.png" alt="DHA dataset showing MRE and Demographic Parity per keypoint" style="width:100%">
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column">
+          <h3 class="title is-4">Per-Keypoint Fairness Analysis - CephAdoAdu Dataset</h3>
+          <img src="static/images/cephalo_fairness_analysis.png" alt="CephAdoAdu dataset showing MRE and Demographic Parity per keypoint" style="width:100%">
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Mitigation Strategy-->
+<section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Fairness Mitigation Strategy</h2>
+          <div class="content has-text-justified">
+            <p>
+              To address the identified fairness issues, we adapt <b>GroupDRO (Group Distributionally Robust Optimization)</b> for the landmark detection context. Our approach creates fine-grained subgroups by combining keypoints with demographic attributes, resulting in K×G subgroups where K is the number of keypoints and G is the number of demographic groups. For the DHA dataset, this creates 148 subgroups (37 keypoints × 4 demographic groups), allowing targeted optimization for each keypoint-demographic combination. The GroupDRO objective minimizes the maximum expected loss across all subgroups, effectively improving performance for the worst-performing demographic groups. Our results demonstrate <b>partial but meaningful improvements</b> in fairness metrics while maintaining comparable overall accuracy, with maximum MRE drops of only 0.04-0.07mm across datasets.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column">
+          <h3 class="title is-4">Mitigation Results Comparison</h3>
+          <img src="static/images/mitigation_results.png" alt="Comparison of demographic parity before and after GroupDRO mitigation" style="width:100%">
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy Implications-->
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Privacy-Related Implications</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our investigation reveals a concerning privacy implication: the correlation between landmark detection errors and demographic attributes is strong enough to enable <b>inference of sensitive patient information</b>. Using Random Forest classifiers trained on per-keypoint Mean Radial Errors (MRE), we achieve classification accuracies significantly above random chance for demographic attributes. For the DHA dataset, we obtain up to 73% accuracy for age prediction and 72% for gender prediction when filtering by the complementary attribute. For CephAdoAdu, age prediction reaches 64% accuracy. Importantly, direct CNN classification on X-ray images yields near-random performance (53-59%), confirming that the privacy leak stems specifically from the fairness issues in landmark detection rather than obvious visual cues in the images. This finding highlights the critical need for fairness-aware approaches in medical AI systems to protect patient privacy.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column">
+          <h3 class="title is-4">Privacy Risk Assessment</h3>
+          <img src="static/images/privacy_analysis.png" alt="Classification accuracy for inferring demographic attributes from landmark errors" style="width:100%">
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- State-of-the-art Comparison-->
+<section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Comparison with State-of-the-Art</h2>
+          <div class="content has-text-justified">
+            <p>
+              To ensure our findings are not model-specific, we conduct comprehensive comparisons with state-of-the-art landmark detection methods including <b>SCN, GU2Net, and CeLDA</b>, as well as ablation studies with different U-Net backbones (ResNet50, VGG19, DenseNet121). Our results demonstrate that fairness issues are consistent across different architectures and methods, with similar Demographic Parity values observed regardless of the specific model used. This confirms that the identified fairness problems are inherent to the datasets and task formulation rather than artifacts of particular modeling choices, emphasizing the universal need for fairness-aware approaches in anatomical landmark detection systems.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column">
+          <h3 class="title is-4">SOTA Comparison Results</h3>
+          <img src="static/images/sota_comparison_table.png" alt="Performance and fairness metrics comparison across different methods" style="width:100%">
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX Citation</h2>
+      <pre><code>
+        @InProceedings{DiVia2025Fairness,
+            author    = {Di Via, Roberto and Ciranni, Massimiliano and Marinelli, Davide and Clement, Allison and Patel, Nikil and Wyatt, Julian and Odone, Francesca and Santacesaria, Matteo and Voiculescu, Irina and Pastore, Vito Paolo},
+            title     = {Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy},
+            booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+            month     = {October},
+            year      = {2025},
+            pages     = {TBD}
+        }
+      </code></pre>
+      <h2 class="title">APA Citation</h2>
+      <pre><code>
+        Di Via, R., Ciranni, M., Marinelli, D., Clement, A., Patel, N., Wyatt, J., Odone, F., Santacesaria, M., Voiculescu, I., & Pastore, V. P. (2025). Are X-ray landmark detection models fair? A preliminary assessment and mitigation strategy. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops.
+      </code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
