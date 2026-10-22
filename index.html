@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>FairerXRay: Fairness of X-ray Landmark Detection Models (ICCVW 2025)</title>
-  <meta name="description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO helps.">
+  <meta name="description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO partially mitigates it.">
   <meta name="keywords" content="fairness, anatomical landmark detection, X-ray, demographic parity, bias mitigation, GroupDRO, privacy, medical imaging, ICCV 2025 Workshops">
   <meta name="author" content="Roberto Di Via, Massimiliano Ciranni, Davide Marinelli, Allison Clement, Nikil Patel, Julian Wyatt, Francesca Odone, Matteo Santacesaria, Irina Voiculescu, Vito Paolo Pastore">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -15,7 +15,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="FairerXRay (ICCV 2025 Workshop)">
   <meta property="og:title" content="Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy">
-  <meta property="og:description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO helps.">
+  <meta property="og:description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO partially mitigates it.">
   <meta property="og:url" content="https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/">
   <meta property="og:image" content="https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/static/images/social_card.jpg">
   <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FairerXRay: Fairness of X-ray Landmark Detection Models (ICCVW 2025)">
-  <meta name="twitter:description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO helps.">
+  <meta name="twitter:description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO partially mitigates it.">
   <meta name="twitter:image" content="https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/static/images/social_card.jpg">
 
   <!-- Google Scholar -->
@@ -59,7 +59,7 @@
       "name": "Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy",
       "alternativeHeadline": "FairerXRay: fairness of X-ray anatomical landmark detection",
       "abstract": "Datasets used for benchmarking are always acquired with a view to representing different categories equally, with the best intentions to be fair to all. Whilst it is usually assumed that equal numerical representation in the training data leads to similar accuracy among demographic groups, so far, there has been next to no investigation or measurement of this assumption for the anatomical landmark detection task. In this work, we define what it means for anatomical landmark detection to be carried out fairly on different demographic categories, evaluating the fairness of models trained on two publicly available X-ray datasets that are known to be balanced, and showing how unfair predictions can uncover metadata attributes intended to be hidden. We further design a potential mitigation strategy in the landmark detection context, adapting a group optimization method typically employed for debiasing image classification models, obtaining a partial improvement in terms of per-keypoint fairness, while paving the way for further research in this field.",
-      "description": "ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO helps.",
+      "description": "ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO partially mitigates it.",
       "author": [
         {
           "@type": "Person",
@@ -307,21 +307,21 @@
               <span class="author-block">
                 <a href="https://rubrica.unige.it/personale/UUdPXVxt" target="_blank">Roberto Di Via</a><sup>1</sup>,</span>
                 <span class="author-block">
-                  <a href="#" target="_blank">Massimiliano Ciranni</a><sup>1</sup>,</span>
+                  Massimiliano Ciranni<sup>1</sup>,</span>
                   <span class="author-block">
-                    <a href="#" target="_blank">Davide Marinelli</a><sup>1</sup>,</span>
+                    Davide Marinelli<sup>1</sup>,</span>
                   <span class="author-block">
-                    <a href="#" target="_blank">Allison Clement</a><sup>3</sup>,</span>
+                    Allison Clement<sup>3</sup>,</span>
                   <span class="author-block">
-                    <a href="#" target="_blank">Nikil Patel</a><sup>3</sup>,</span>
+                    Nikil Patel<sup>3</sup>,</span>
                   <span class="author-block">
-                    <a href="#" target="_blank">Julian Wyatt</a><sup>3</sup>,</span>
+                    Julian Wyatt<sup>3</sup>,</span>
                   <span class="author-block">
                     <a href="https://rubrica.unige.it/personale/UkNHW1pu" target="_blank">Francesca Odone</a><sup>1</sup>,</span>
                   <span class="author-block">
-                    <a href="#" target="_blank">Matteo Santacesaria</a><sup>2</sup>,</span>
+                    Matteo Santacesaria<sup>2</sup>,</span>
                   <span class="author-block">
-                    <a href="#" target="_blank">Irina Voiculescu</a><sup>3</sup>,</span>
+                    Irina Voiculescu<sup>3</sup>,</span>
                   <span class="author-block">
                     <a href="https://rubrica.unige.it/personale/UkNEWVts" target="_blank">Vito Paolo Pastore</a><sup>1</sup>
                   </span>
@@ -354,17 +354,6 @@
                       <span>Poster</span>
                     </a>
                   </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/Malga-Vision/X-ray-Landmark-Detection-Fairness" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
             </div>
           </div>
         </div>
@@ -388,7 +377,7 @@
       <br>
 
       <h2 class="subtitle has-text-centered">
-        This work presents the first comprehensive assessment of fairness in anatomical landmark detection models for X-ray images, revealing significant demographic disparities even in carefully balanced datasets and proposing mitigation strategies using GroupDRO optimization.
+        This work presents the first assessment of fairness in anatomical landmark detection models for X-ray images, revealing significant demographic disparities even in carefully balanced datasets and proposing mitigation strategies using GroupDRO optimization.
       </h2> 
       
     </div>
@@ -422,7 +411,7 @@
           <h2 class="title is-3">Approach</h2>
           <div class="content has-text-justified">
             <p>
-              Our work addresses the critical gap in fairness assessment for anatomical landmark detection by establishing a comprehensive evaluation protocol. We adapt the popular <b>Demographic Parity (DP) metric</b> from classification tasks to landmark detection, measuring fairness at the individual keypoint level rather than globally. The key innovation lies in recognizing that <b>fairness must be evaluated per keypoint</b>, as global measures can hide significant disparities affecting specific anatomical landmarks. We evaluate models on two carefully balanced X-ray datasets: the Digital Hand Atlas (DHA) with 37 landmarks and the CephAdoAdu dataset with 10 cephalometric landmarks, considering demographic attributes including age and gender.
+              Our work addresses the critical gap in fairness assessment for anatomical landmark detection by establishing a protocol for assessing fairness in X-ray anatomical landmark prediction. We adapt the popular <b>Demographic Parity (DP) metric</b> from classification tasks to landmark detection, measuring fairness at the individual keypoint level rather than globally. The key innovation lies in recognizing that <b>fairness must be evaluated per keypoint</b>, as global measures can hide significant disparities affecting specific anatomical landmarks. We evaluate models on two carefully balanced X-ray datasets: the Digital Hand Atlas (DHA) with 37 landmarks and the CephAdoAdu dataset with 10 cephalometric landmarks, considering demographic attributes including age and gender.
             </p>
           </div>
         </div>
@@ -445,7 +434,7 @@
           <h2 class="title is-3">Fairness Assessment Results</h2>
           <div class="content has-text-justified">
             <p>
-              Our comprehensive fairness evaluation reveals significant demographic disparities in landmark detection models, even when trained on carefully balanced datasets. For the <b>DHA dataset</b>, while the overall average Demographic Parity (DP) appears relatively low at 0.045±0.009, per-keypoint analysis uncovers substantial fairness issues. Notably, wrist keypoints (KP1-KP18) exhibit much higher DP values than finger keypoints, with some landmarks showing DP values of 0.20, representing a 20% gap in Success Detection Rate (SDR) across demographic groups. Interestingly, the most significant disparities occur between female patients in different age groups, contradicting medical literature that finds no significant age-related differences. For the <b>CephAdoAdu dataset</b>, several keypoints (KP1, KP4-KP6) show elevated DP values, with KP1 reaching 0.17. Statistical validation through attribute randomization experiments confirms that these disparities are significantly higher than expected by chance, establishing genuine fairness concerns in anatomical landmark detection.
+              Our comprehensive fairness evaluation reveals significant demographic disparities in landmark detection models, even when trained on carefully balanced datasets. For the <b>DHA dataset</b>, while the overall average Demographic Parity (DP) appears relatively low at 0.045±0.009, per-keypoint analysis uncovers substantial fairness issues. Notably, wrist keypoints (KP1-KP18) exhibit much higher DP values than finger keypoints, with some landmarks showing DP values of 0.20, representing a 20% gap in Success Detection Rate (SDR) across demographic groups. Interestingly, the most significant disparities occur between female patients in different age groups, contradicting medical literature that finds no significant age-related differences. For the <b>CephAdoAdu dataset</b>, several keypoints (KP1, KP4-KP6) show elevated DP values, with KP1 reaching 0.17. An attribute randomization experiment shows that the most unfair DHA wrist keypoints have a DP significantly higher than the attribute-randomized counterpart, while finger keypoints keep similar values. On CephAdoAdu, KP4-KP6 show higher DP but not significantly above the randomized counterpart, whereas KP1 exceeds it, suggesting a potential fairness issue.
             </p>
           </div>
         </div>
@@ -479,7 +468,7 @@
           <h2 class="title is-3">Fairness Mitigation Strategy</h2>
           <div class="content has-text-justified">
             <p>
-              To address the identified fairness issues, we adapt <b>GroupDRO (Group Distributionally Robust Optimization)</b> for the landmark detection context. Our approach creates fine-grained subgroups by combining keypoints with demographic attributes, resulting in K×G subgroups where K is the number of keypoints and G is the number of demographic groups. For the DHA dataset, this creates 148 subgroups (37 keypoints × 4 demographic groups), allowing targeted optimization for each keypoint-demographic combination. The GroupDRO objective minimizes the maximum expected loss across all subgroups, effectively improving performance for the worst-performing demographic groups. Our results demonstrate <b>partial but meaningful improvements</b> in fairness metrics while maintaining comparable overall accuracy, with maximum MRE drops of only 0.04-0.07mm across datasets.
+              To address the identified fairness issues, we adapt <b>GroupDRO (Group Distributionally Robust Optimization)</b> for the landmark detection context. Our approach creates fine-grained subgroups by combining keypoints with demographic attributes, resulting in K×G subgroups where K is the number of keypoints and G is the number of demographic groups. For the DHA dataset, this creates 148 subgroups (37 keypoints × 4 demographic groups), allowing targeted optimization for each keypoint-demographic combination. The GroupDRO objective minimizes the maximum expected loss across all subgroups, and we use it to fine-tune the model originally trained without mitigation. Our results show a <b>partial improvement</b> in fairness: DP generally decreases across keypoints, but some keypoints remain above 0.10 on DHA (e.g., KP1, KP11, KP18, KP19) and KP1 stays above 0.15 on CephAdoAdu. The average MRE is roughly preserved, with a maximum drop of 0.07 mm on CephAdoAdu and 0.04 mm on DHA.
             </p>
           </div>
         </div>
@@ -505,7 +494,7 @@
           <h2 class="title is-3">Privacy-Related Implications</h2>
           <div class="content has-text-justified">
             <p>
-              Our investigation reveals a concerning privacy implication: the correlation between landmark detection errors and demographic attributes is strong enough to enable <b>inference of sensitive patient information</b>. Using Random Forest classifiers trained on per-keypoint Mean Radial Errors (MRE), we achieve classification accuracies significantly above random chance for demographic attributes. For the DHA dataset, we obtain up to 73% accuracy for age prediction and 72% for gender prediction when filtering by the complementary attribute. For CephAdoAdu, age prediction reaches 64% accuracy. Importantly, direct CNN classification on X-ray images yields near-random performance (53-59%), confirming that the privacy leak stems specifically from the fairness issues in landmark detection rather than obvious visual cues in the images. This finding highlights the critical need for fairness-aware approaches in medical AI systems to protect patient privacy.
+              Our investigation reveals a concerning privacy implication: the correlation between landmark detection errors and demographic attributes is strong enough to enable <b>inference of sensitive patient information</b>. Using Random Forest classifiers trained on per-keypoint Mean Radial Errors (MRE), we achieve classification accuracies significantly above random chance for demographic attributes. For the DHA dataset, filtering by the complementary attribute, we obtain up to 68% accuracy for age prediction (male patients) and 73% for gender prediction (young patients). For CephAdoAdu, age prediction reaches 64% accuracy. Importantly, direct CNN classification on X-ray images yields near-random performance (53-59%), confirming that the privacy leak stems specifically from the fairness issues in landmark detection rather than obvious visual cues in the images. This finding highlights the critical need for fairness-aware approaches in medical AI systems to protect patient privacy.
             </p>
           </div>
         </div>
@@ -531,7 +520,7 @@
           <h2 class="title is-3">Comparison with State-of-the-Art</h2>
           <div class="content has-text-justified">
             <p>
-              To ensure our findings are not model-specific, we conduct comprehensive comparisons with state-of-the-art landmark detection methods including <b>SCN, GU2Net, and CeLDA</b>, as well as ablation studies with different U-Net backbones (ResNet50, VGG19, DenseNet121). Our results demonstrate that fairness issues are consistent across different architectures and methods, with similar Demographic Parity values observed regardless of the specific model used. This confirms that the identified fairness problems are inherent to the datasets and task formulation rather than artifacts of particular modeling choices, emphasizing the universal need for fairness-aware approaches in anatomical landmark detection systems.
+              To ensure our findings are not model-specific, we conduct comprehensive comparisons with state-of-the-art landmark detection methods including <b>SCN, GU2Net, and CeLDA</b>, as well as ablation studies with different U-Net backbones (ResNet50, VGG19, DenseNet121). The different U-Net backbones show similar values for the average DP across keypoints and roughly similar average MREs, being competitive with the state of the art. This excludes that the identified fairness issues are a consequence of a specific or suboptimal model.
             </p>
           </div>
         </div>
