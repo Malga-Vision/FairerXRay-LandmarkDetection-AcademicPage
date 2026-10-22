@@ -1,0 +1,30 @@
+# FairerXRay: Are X-ray Landmark Detection Models Fair? (ICCV 2025 Workshop)
+
+> Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy. Roberto Di Via, Massimiliano Ciranni, Davide Marinelli, Allison Clement, Nikil Patel, Julian Wyatt, Francesca Odone, Matteo Santacesaria, Irina Voiculescu, Vito Paolo Pastore (MaLGa-DIBRIS and MaLGa-DIMA, University of Genoa; Department of Computer Science, University of Oxford). Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops 2025, STREAM workshop, pages 272-278. DOI: 10.1109/ICCVW69036.2025.00034.
+
+The paper is the first assessment of demographic fairness in anatomical landmark detection on X-ray images. It adapts Demographic Parity (DP) to landmark detection, using the Success Detection Rate (2 mm) as the true positive rate, and evaluates it per keypoint on two balanced public datasets: the Digital Hand Atlas (DHA, 909 hand radiographs, 37 landmarks, age and gender) and CephAdoAdu (700 cephalograms, 10 landmarks, age). It shows that landmark errors can leak sensitive attributes and proposes a GroupDRO-based mitigation over keypoint x demographic subgroups.
+
+Key results (U-Net with DenseNet121 encoder, 10 hold-outs):
+- Overall MRE 0.72 mm on DHA and 1.13 mm on CephAdoAdu.
+- Average DP looks low (0.045 on DHA, 0.080 on CephAdoAdu), but per-keypoint DP reaches 0.20 on DHA wrist keypoints KP1 and KP3 (a 20% SDR gap) and 0.17 on CephAdoAdu KP1.
+- A Random Forest on per-keypoint MREs infers age or gender with up to 0.73 accuracy on DHA and 0.64 on CephAdoAdu, while a CNN on the images stays near chance (0.53-0.59).
+- GroupDRO fine-tuning (148 subgroups on DHA) lowers DP for many keypoints with an average MRE drop of at most 0.07 mm (CephAdoAdu) and 0.04 mm (DHA), but does not remove the unfairness entirely.
+
+## Links
+- [Project page](https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/)
+- [Paper (CVF Open Access)](https://openaccess.thecvf.com/content/ICCV2025W/STREAM/html/Di_Via_Are_X-ray_Landmark_Detection_Models_Fair_A_Preliminary_Assessment_and_ICCVW_2025_paper.html)
+- [Paper PDF](https://openaccess.thecvf.com/content/ICCV2025W/STREAM/papers/Di_Via_Are_X-ray_Landmark_Detection_Models_Fair_A_Preliminary_Assessment_and_ICCVW_2025_paper.pdf)
+- [IEEE Xplore (DOI)](https://doi.org/10.1109/ICCVW69036.2025.00034)
+- [Oxford Research Archive](https://ora.ox.ac.uk/objects/uuid:18da2a98-a6b9-47a2-92fc-ff5921a96c1d)
+
+## Citation
+@inproceedings{DiVia2025FairXrayLandmarks,
+  author    = {Di Via, Roberto and Ciranni, Massimiliano and Marinelli, Davide and Clement, Allison and Patel, Nikil and Wyatt, Julian and Odone, Francesca and Santacesaria, Matteo and Voiculescu, Irina and Pastore, Vito Paolo},
+  title     = {Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+  month     = {October},
+  year      = {2025},
+  pages     = {272--278},
+  publisher = {IEEE},
+  doi       = {10.1109/ICCVW69036.2025.00034}
+}

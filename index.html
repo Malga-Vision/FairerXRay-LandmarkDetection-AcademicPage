@@ -1,17 +1,280 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="This study presents the first comprehensive assessment of fairness in X-ray landmark detection models, revealing demographic disparities even in balanced datasets and proposing mitigation strategies using GroupDRO optimization.">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="Fairness, Landmark detection, X-ray, Demographic Parity, Bias mitigation, Medical imaging, GroupDRO">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>FairerXRay: Fairness of X-ray Landmark Detection Models (ICCVW 2025)</title>
+  <meta name="description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO helps.">
+  <meta name="keywords" content="fairness, anatomical landmark detection, X-ray, demographic parity, bias mitigation, GroupDRO, privacy, medical imaging, ICCV 2025 Workshops">
+  <meta name="author" content="Roberto Di Via, Massimiliano Ciranni, Davide Marinelli, Allison Clement, Nikil Patel, Julian Wyatt, Francesca Odone, Matteo Santacesaria, Irina Voiculescu, Vito Paolo Pastore">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/">
 
-  <title>Are X-ray Landmark Detection Models Fair?</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="FairerXRay (ICCV 2025 Workshop)">
+  <meta property="og:title" content="Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy">
+  <meta property="og:description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO helps.">
+  <meta property="og:url" content="https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/">
+  <meta property="og:image" content="https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/static/images/social_card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Digital Hand Atlas (37 landmarks) and CephAdoAdu (10 landmarks) X-rays with numbered ground-truth keypoints">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FairerXRay: Fairness of X-ray Landmark Detection Models (ICCVW 2025)">
+  <meta name="twitter:description" content="ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO helps.">
+  <meta name="twitter:image" content="https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/static/images/social_card.jpg">
+
+  <!-- Google Scholar -->
+  <meta name="citation_title" content="Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy">
+  <meta name="citation_author" content="Di Via, Roberto">
+  <meta name="citation_author" content="Ciranni, Massimiliano">
+  <meta name="citation_author" content="Marinelli, Davide">
+  <meta name="citation_author" content="Clement, Allison">
+  <meta name="citation_author" content="Patel, Nikil">
+  <meta name="citation_author" content="Wyatt, Julian">
+  <meta name="citation_author" content="Odone, Francesca">
+  <meta name="citation_author" content="Santacesaria, Matteo">
+  <meta name="citation_author" content="Voiculescu, Irina">
+  <meta name="citation_author" content="Pastore, Vito Paolo">
+  <meta name="citation_publication_date" content="2025/10/19">
+  <meta name="citation_conference_title" content="2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)">
+  <meta name="citation_publisher" content="IEEE">
+  <meta name="citation_firstpage" content="272">
+  <meta name="citation_lastpage" content="278">
+  <meta name="citation_doi" content="10.1109/ICCVW69036.2025.00034">
+  <meta name="citation_pdf_url" content="https://openaccess.thecvf.com/content/ICCV2025W/STREAM/papers/Di_Via_Are_X-ray_Landmark_Detection_Models_Fair_A_Preliminary_Assessment_and_ICCVW_2025_paper.pdf">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#article",
+      "headline": "Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy",
+      "name": "Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy",
+      "alternativeHeadline": "FairerXRay: fairness of X-ray anatomical landmark detection",
+      "abstract": "Datasets used for benchmarking are always acquired with a view to representing different categories equally, with the best intentions to be fair to all. Whilst it is usually assumed that equal numerical representation in the training data leads to similar accuracy among demographic groups, so far, there has been next to no investigation or measurement of this assumption for the anatomical landmark detection task. In this work, we define what it means for anatomical landmark detection to be carried out fairly on different demographic categories, evaluating the fairness of models trained on two publicly available X-ray datasets that are known to be balanced, and showing how unfair predictions can uncover metadata attributes intended to be hidden. We further design a potential mitigation strategy in the landmark detection context, adapting a group optimization method typically employed for debiasing image classification models, obtaining a partial improvement in terms of per-keypoint fairness, while paving the way for further research in this field.",
+      "description": "ICCV 2025 Workshop paper auditing per-keypoint fairness of X-ray landmark detection (DHA, CephAdoAdu): balanced data still gives DP up to 0.20; GroupDRO helps.",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Roberto Di Via",
+          "givenName": "Roberto",
+          "familyName": "Di Via",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#unige-dibris"
+          },
+          "url": "https://rubrica.unige.it/personale/UUdPXVxt"
+        },
+        {
+          "@type": "Person",
+          "name": "Massimiliano Ciranni",
+          "givenName": "Massimiliano",
+          "familyName": "Ciranni",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#unige-dibris"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Davide Marinelli",
+          "givenName": "Davide",
+          "familyName": "Marinelli",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#unige-dibris"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Allison Clement",
+          "givenName": "Allison",
+          "familyName": "Clement",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#oxford"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Nikil Patel",
+          "givenName": "Nikil",
+          "familyName": "Patel",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#oxford"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Julian Wyatt",
+          "givenName": "Julian",
+          "familyName": "Wyatt",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#oxford"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Francesca Odone",
+          "givenName": "Francesca",
+          "familyName": "Odone",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#unige-dibris"
+          },
+          "url": "https://rubrica.unige.it/personale/UkNHW1pu"
+        },
+        {
+          "@type": "Person",
+          "name": "Matteo Santacesaria",
+          "givenName": "Matteo",
+          "familyName": "Santacesaria",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#unige-dima"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Irina Voiculescu",
+          "givenName": "Irina",
+          "familyName": "Voiculescu",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#oxford"
+          }
+        },
+        {
+          "@type": "Person",
+          "name": "Vito Paolo Pastore",
+          "givenName": "Vito Paolo",
+          "familyName": "Pastore",
+          "affiliation": {
+            "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#unige-dibris"
+          },
+          "url": "https://rubrica.unige.it/personale/UkNEWVts"
+        }
+      ],
+      "datePublished": "2025-10-19",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "pagination": "272-278",
+      "pageStart": "272",
+      "pageEnd": "278",
+      "keywords": [
+        "fairness",
+        "anatomical landmark detection",
+        "X-ray",
+        "demographic parity",
+        "bias mitigation",
+        "GroupDRO",
+        "privacy",
+        "medical imaging",
+        "Digital Hand Atlas",
+        "CephAdoAdu",
+        "ICCV 2025 Workshops"
+      ],
+      "image": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/static/images/social_card.jpg",
+      "url": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/",
+      "mainEntityOfPage": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.1109/ICCVW69036.2025.00034"
+      },
+      "sameAs": [
+        "https://doi.org/10.1109/ICCVW69036.2025.00034",
+        "https://openaccess.thecvf.com/content/ICCV2025W/STREAM/html/Di_Via_Are_X-ray_Landmark_Detection_Models_Fair_A_Preliminary_Assessment_and_ICCVW_2025_paper.html",
+        "https://ora.ox.ac.uk/objects/uuid:18da2a98-a6b9-47a2-92fc-ff5921a96c1d"
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://openaccess.thecvf.com/content/ICCV2025W/STREAM/papers/Di_Via_Are_X-ray_Landmark_Detection_Models_Fair_A_Preliminary_Assessment_and_ICCVW_2025_paper.pdf",
+        "encodingFormat": "application/pdf"
+      },
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "name": "2025 IEEE/CVF International Conference on Computer Vision Workshops (ICCVW)",
+        "publisher": {
+          "@type": "Organization",
+          "name": "IEEE"
+        }
+      },
+      "publication": {
+        "@type": "PublicationEvent",
+        "name": "ICCV 2025 Workshop STREAM: Systematic Trust in AI Models: Ensuring Fairness, Reliability, Explainability, and Accountability in Machine Learning Frameworks",
+        "location": "Honolulu, HI, USA"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#unige-dibris",
+      "name": "MaLGa-DIBRIS, University of Genoa",
+      "url": "https://malga.unige.it/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#unige-dima",
+      "name": "MaLGa-DIMA, University of Genoa",
+      "url": "https://malga.unige.it/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#oxford",
+      "name": "Department of Computer Science, University of Oxford",
+      "url": "https://www.cs.ox.ac.uk/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://malga-vision.github.io/FairerXRay-LandmarkDetection-AcademicPage/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does the paper \"Are X-ray landmark detection models fair?\" study?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This ICCV 2025 Workshop paper (STREAM workshop, pages 272-278) is the first assessment of demographic fairness in anatomical landmark detection on X-ray images. It adapts Demographic Parity (DP) from classification to landmark detection by using the Success Detection Rate (SDR, 2 mm threshold) as the true positive rate, and computes DP separately for every keypoint, because averages over all keypoints hide fairness issues that affect only a few landmarks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which datasets and models are evaluated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two balanced public X-ray datasets: the Digital Hand Atlas (DHA, 909 hand radiographs, 37 landmarks, attributes age and gender) and CephAdoAdu (700 cephalograms, 350 adults and 350 adolescents, 10 landmarks, attribute age). The main model is a U-Net with an ImageNet-pretrained DenseNet121 encoder, trained on 10 balanced hold-outs; its overall mean radial error (MRE) is 0.72 mm on DHA and 1.13 mm on CephAdoAdu. ResNet50 and VGG19 encoders, SCN, GU2Net and CeLDA are also compared."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are X-ray landmark detection models fair?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not fully, even on balanced data. The average DP looks low (0.045 on DHA and 0.080 on CephAdoAdu), but per keypoint it reaches 0.20 on the DHA wrist keypoints KP1 and KP3, a 20% SDR gap that is largest between female patients of the two age groups. Wrist keypoints have much higher DP than finger keypoints, and on CephAdoAdu KP1 reaches 0.17, above an attribute-randomized control. Different encoders give similar average DP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can landmark detection errors reveal sensitive patient attributes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A Random Forest trained on per-keypoint MREs predicts age or gender with up to 0.73 accuracy on DHA and 0.64 for age on CephAdoAdu (5-fold cross-validation), while a CNN trained directly on the X-ray images stays close to random guessing (0.53-0.59). The leak comes from the unfair errors of the landmark detector, a privacy risk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the fairness issue mitigated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The paper fine-tunes the detector with GroupDRO, defining K x G subgroups from keypoints and demographic groups (148 subgroups on DHA: 37 keypoints x 4 age-gender groups) and minimizing the worst-subgroup loss. DP decreases for many keypoints, but some remain unfair (e.g. DHA KP1, KP11, KP18, KP19 above 0.10), while the average MRE drops by at most 0.07 mm on CephAdoAdu and 0.04 mm on DHA."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -24,7 +287,6 @@
   <link rel="stylesheet" href="static/css/index.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
@@ -67,7 +329,7 @@
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block"><sup>1</sup>MaLGa-DIBRIS, <sup>2</sup>MaLGa-DIMA, University of Genoa, Italy<br><sup>3</sup>Oxford University, Department of Computer Science, UK<br>ICCV 2025 Workshop on STREAM (Systematic Trust in AI Models: Ensuring Fairness; Reliability; Explainability; and Accountability in Machine Learning Frameworks</span>
+                    <span class="author-block"><sup>1</sup>MaLGa-DIBRIS, <sup>2</sup>MaLGa-DIMA, University of Genoa, Italy<br><sup>3</sup>Oxford University, Department of Computer Science, UK<br>ICCV 2025 Workshop on STREAM (Systematic Trust in AI Models: Ensuring Fairness; Reliability; Explainability; and Accountability in Machine Learning Frameworks)</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -118,10 +380,10 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       
-      <!--<img src="static/images/fairness_teaser.png" alt="Fairness assessment visualization showing demographic parity across different keypoints" style="width:100%"> -->
+      <!--<img src="static/images/fairness_teaser.png" alt="Fairness assessment visualization showing demographic parity across different keypoints" style="width:100%; height:auto;"> -->
 
-      <video poster="" id="tree" autoplay controls muted loop width="100%">
-        <source src="static/videos/video.mp4"
+      <video poster="static/videos/video_poster.jpg" id="tree" autoplay controls muted loop playsinline width="100%" aria-label="Recorded ICCV 2025 Workshop presentation of the paper">
+        <source src="static/videos/video_web.mp4"
         type="video/mp4">
       </video>
       <br>
@@ -168,7 +430,7 @@
       </div>
       <div class="columns is-centered">
         <div class="column">
-          <img src="static/images/datasets_overview.png" alt="Overview of DHA and CephAdoAdu datasets with numbered landmarks" style="width:100%">
+          <img src="static/images/datasets_overview_web.jpg" width="1612" height="851" loading="lazy" alt="Digital Hand Atlas (37 landmarks) and CephAdoAdu (10 landmarks) X-rays with numbered ground-truth keypoints" style="width:100%; height:auto;">
         </div>
       </div>
     </div>
@@ -193,14 +455,14 @@
       <div class="columns is-centered">
         <div class="column">
           <h3 class="title is-4">Per-Keypoint Fairness Analysis - DHA Dataset</h3>
-          <img src="static/images/dha_fairness_analysis.png" alt="DHA dataset showing MRE and Demographic Parity per keypoint" style="width:100%">
+          <img src="static/images/dha_fairness_analysis.png" width="1612" height="782" loading="lazy" alt="Digital Hand Atlas: mean radial error and demographic parity for each of the 37 keypoints, wrist versus fingers, with original and randomized attributes" style="width:100%; height:auto;">
         </div>
       </div>
 
       <div class="columns is-centered">
         <div class="column">
           <h3 class="title is-4">Per-Keypoint Fairness Analysis - CephAdoAdu Dataset</h3>
-          <img src="static/images/cephalo_fairness_analysis.png" alt="CephAdoAdu dataset showing MRE and Demographic Parity per keypoint" style="width:100%">
+          <img src="static/images/cephalo_fairness_analysis.png" width="1596" height="767" loading="lazy" alt="CephAdoAdu: mean radial error and demographic parity for each of the 10 cephalometric keypoints, with original and randomized attributes" style="width:100%; height:auto;">
         </div>
       </div>
 
@@ -227,7 +489,7 @@
       <div class="columns is-centered">
         <div class="column">
           <h3 class="title is-4">Mitigation Results Comparison</h3>
-          <img src="static/images/mitigation_results.png" alt="Comparison of demographic parity before and after GroupDRO mitigation" style="width:100%">
+          <img src="static/images/mitigation_results.png" width="1230" height="800" loading="lazy" alt="Per-keypoint demographic parity of the vanilla model versus the GroupDRO-mitigated model on DHA and CephAdoAdu" style="width:100%; height:auto;">
         </div>
       </div>
 
@@ -253,7 +515,7 @@
       <div class="columns is-centered">
         <div class="column">
           <h3 class="title is-4">Privacy Risk Assessment</h3>
-          <img src="static/images/privacy_analysis.png" alt="Classification accuracy for inferring demographic attributes from landmark errors" style="width:100%">
+          <img src="static/images/privacy_analysis.png" width="1597" height="734" loading="lazy" alt="Table 2: 5-fold accuracy of inferring age and gender with a CNN on the X-ray images versus a Random Forest on per-keypoint landmark errors" style="width:100%; height:auto;">
         </div>
       </div>
 
@@ -279,7 +541,7 @@
       <div class="columns is-centered">
         <div class="column">
           <h3 class="title is-4">SOTA Comparison Results</h3>
-          <img src="static/images/sota_comparison_table.png" alt="Performance and fairness metrics comparison across different methods" style="width:100%">
+          <img src="static/images/sota_comparison_table.png" width="1757" height="538" loading="lazy" alt="Table comparing MRE, SDR and demographic parity of SCN, GU2Net, CeLDA and U-Net with ResNet50, VGG19 and DenseNet121 encoders" style="width:100%; height:auto;">
         </div>
       </div>
 
@@ -289,22 +551,74 @@
 </section>
 
 
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Frequently asked questions</h2>
+    <h3 class="title is-5" style="margin-top:1.2rem;">What does the paper &quot;Are X-ray landmark detection models fair?&quot; study?</h3>
+    <p>This ICCV 2025 Workshop paper (STREAM workshop, pages 272-278) is the first assessment of demographic fairness in anatomical landmark detection on X-ray images. It adapts Demographic Parity (DP) from classification to landmark detection by using the Success Detection Rate (SDR, 2 mm threshold) as the true positive rate, and computes DP separately for every keypoint, because averages over all keypoints hide fairness issues that affect only a few landmarks.</p>
+    <h3 class="title is-5" style="margin-top:1.2rem;">Which datasets and models are evaluated?</h3>
+    <p>Two balanced public X-ray datasets: the Digital Hand Atlas (DHA, 909 hand radiographs, 37 landmarks, attributes age and gender) and CephAdoAdu (700 cephalograms, 350 adults and 350 adolescents, 10 landmarks, attribute age). The main model is a U-Net with an ImageNet-pretrained DenseNet121 encoder, trained on 10 balanced hold-outs; its overall mean radial error (MRE) is 0.72 mm on DHA and 1.13 mm on CephAdoAdu. ResNet50 and VGG19 encoders, SCN, GU2Net and CeLDA are also compared.</p>
+    <h3 class="title is-5" style="margin-top:1.2rem;">Are X-ray landmark detection models fair?</h3>
+    <p>Not fully, even on balanced data. The average DP looks low (0.045 on DHA and 0.080 on CephAdoAdu), but per keypoint it reaches 0.20 on the DHA wrist keypoints KP1 and KP3, a 20% SDR gap that is largest between female patients of the two age groups. Wrist keypoints have much higher DP than finger keypoints, and on CephAdoAdu KP1 reaches 0.17, above an attribute-randomized control. Different encoders give similar average DP.</p>
+    <h3 class="title is-5" style="margin-top:1.2rem;">Can landmark detection errors reveal sensitive patient attributes?</h3>
+    <p>Yes. A Random Forest trained on per-keypoint MREs predicts age or gender with up to 0.73 accuracy on DHA and 0.64 for age on CephAdoAdu (5-fold cross-validation), while a CNN trained directly on the X-ray images stays close to random guessing (0.53-0.59). The leak comes from the unfair errors of the landmark detector, a privacy risk.</p>
+    <h3 class="title is-5" style="margin-top:1.2rem;">How is the fairness issue mitigated?</h3>
+    <p>The paper fine-tunes the detector with GroupDRO, defining K x G subgroups from keypoints and demographic groups (148 subgroups on DHA: 37 keypoints x 4 age-gender groups) and minimizing the worst-subgroup loss. DP decreases for many keypoints, but some remain unfair (e.g. DHA KP1, KP11, KP18, KP19 above 0.10), while the average MRE drops by at most 0.07 mm on CephAdoAdu and 0.04 mm on DHA.</p>
+  </div>
+</section>
+
+<!-- Related work -->
+<section class="section hero is-light" id="related">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Related work from our lab</h2>
+    <ul>
+      <li>
+        <b>PACER</b>: Curriculum Self-Training with Spatial Uncertainty for Pseudo-Label Selection in Few-Shot Anatomical Landmark Detection. <i>WACV 2027</i>.
+        [<a href="https://malga-vision.github.io/PACER-wacv27-AcademicPage/">Project page</a>]
+        [<a href="https://github.com/Malga-Vision/PACER-wacv27">Code</a>]
+      </li>
+      <li>
+        <b>CDPM-Align</b>: Multi-Scale Guidance-Aligned Diffusion Pretraining for Robust Few-Shot Anatomical Landmark Detection. <i>MICCAI 2026</i>.
+        [<a href="https://malga-vision.github.io/CDPM-Align_AcademicPage/">Project page</a>]
+        [<a href="https://github.com/Malga-Vision/CDPM-Align">Code</a>]
+      </li>
+      <li>
+        Automated Landmark Detection for assessing hip conditions: A Cross-Modality Validation of MRI versus X-ray. <i>ISBI 2026</i>.
+        [<a href="https://malga-vision.github.io/Landmarks-Hip-Conditions-AcademicPage/">Project page</a>]
+      </li>
+      <li>
+        <b>Diffusing DeBias</b>: Synthetic Bias Amplification for Model Debiasing. <i>NeurIPS 2025</i>.
+        [<a href="https://malga-vision.github.io/DiffusingDeBias-AcademicPage/">Project page</a>]
+      </li>
+      <li>
+        Self-supervised pre-training with diffusion model for few-shot landmark detection in X-ray images. <i>WACV 2025</i>.
+        [<a href="https://malga-vision.github.io/DiffusionXray-FewShot-LandmarkDetection-AcademicPage/">Project page</a>]
+      </li>
+      <li>
+        Is in-domain data beneficial in transfer learning for landmarks detection in X-ray images? <i>ISBI 2024</i>.
+        [<a href="https://malga-vision.github.io/InDomain-TransferLearning-LandmarkDetection-AcademicPage/">Project page</a>]
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX Citation</h2>
-      <pre><code>
-        @inproceedings{DiVia2025FairXrayLandmarks,
-          author    = {Di Via, Roberto and Ciranni, Massimiliano and Marinelli, Davide and Clement, Allison and Patel, Nikil and Wyatt, Julian and Odone, Francesca and Santacesaria, Matteo and Voiculescu, Irina and Pastore, Vito Paolo},
-          title     = {Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy},
-          booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
-          year      = {2025}
-        }
-      </code></pre>
+      <pre><code>@inproceedings{DiVia2025FairXrayLandmarks,
+  author    = {Di Via, Roberto and Ciranni, Massimiliano and Marinelli, Davide and Clement, Allison and Patel, Nikil and Wyatt, Julian and Odone, Francesca and Santacesaria, Matteo and Voiculescu, Irina and Pastore, Vito Paolo},
+  title     = {Are X-ray Landmark Detection Models Fair? A Preliminary Assessment and Mitigation Strategy},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+  month     = {October},
+  year      = {2025},
+  pages     = {272--278},
+  publisher = {IEEE},
+  doi       = {10.1109/ICCVW69036.2025.00034}
+}</code></pre>
       <h2 class="title">APA Citation</h2>
-      <pre><code>
-        Di Via, R., Ciranni, M., Marinelli, D., Clement, A., Patel, N., Wyatt, J., Odone, F., Santacesaria, M., Voiculescu, I., & Pastore, V. P. (2025). Are X-ray landmark detection models fair? A preliminary assessment and mitigation strategy. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops.
-      </code></pre>
+      <pre><code>Di Via, R., Ciranni, M., Marinelli, D., Clement, A., Patel, N., Wyatt, J., Odone, F., Santacesaria, M., Voiculescu, I., &amp; Pastore, V. P. (2025). Are X-ray landmark detection models fair? A preliminary assessment and mitigation strategy. In <i>Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops</i> (pp. 272-278). IEEE. https://doi.org/10.1109/ICCVW69036.2025.00034</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
@@ -328,11 +642,6 @@
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
 
   </body>
   </html>
